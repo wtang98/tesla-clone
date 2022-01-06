@@ -1,0 +1,60 @@
+
+html {
+    scroll-snap-type: mandatory;
+    scroll-snap-type: y mandatory;
+}
+
+.home{
+    scroll-snap-align: start;
+    &__model3{
+        overflow: hidden;
+        background-image: url('../../assets/images/model-3.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+    }
+    &__modelY{
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        overflow: hidden;
+        background-image: url('../../assets/images/model-y.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+    &__modelS{
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        overflow: hidden;
+        background-image: url('../../assets/images/model-s.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+    &__modelX{
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        overflow: hidden;
+        background-image: url('../../assets/images/model-x.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }&__solarWall{
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        overflow: hidden;
+        background-image: url('../../assets/images/solar-panel.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }&__acessories{
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
+        overflow: hidden;
+        background-image: url('../../assets/images/accessories.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+}

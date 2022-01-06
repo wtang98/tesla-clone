@@ -1,0 +1,54 @@
+@import "../../assets/styles.scss";
+*{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    background-color: transparent;
+    height: 54px;
+    width: 100vw;
+    justify-content: space-between;
+    display: flex; 
+    font-size: 15px;
+    position: fixed;
+    top: 0;
+    &__logo{
+        display: flex;
+        align-items: center;
+        padding-left: 32px;
+        &-teslaLogo{
+            padding: 0 8px 0px 16px;
+            width: 119.83px;
+            height: 15.25px;
+        }
+    }
+    &__center{
+        display: flex;
+        align-items: center;
+        &>ol{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            &>li{
+                padding: 4px 8px;
+                margin: 0 8px;
+                list-style-type: none;
+            }
+        }
+    }
+    &__right{
+        display: flex;
+        align-items: center;
+        padding-right: 32px;
+        &>ol{
+            display: flex;
+            flex-direction: row;
+            &>li{
+                padding: 4px 8px;
+                margin: 0 8px;
+                list-style-type: none;
+            }
+        }
+    }
+}
