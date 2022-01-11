@@ -1,4 +1,8 @@
-
+@import '../../assets/styles.scss';
+*{
+    margin: 0;
+    padding: 0;
+}
 html {
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
@@ -6,55 +10,163 @@ html {
 
 .home{
     scroll-snap-align: start;
-    &__model3{
+    font-family: $font-primary;
+    &__textOverlay{
+        color: $text-color1;
+        display: flex;
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: -135.5px;
+        &-model3{
+            position: fixed;
+            top: 15%;
+            left: 50%;
+            margin-left: -124.6px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            transition-timing-function: ease-in;
+            transition: 0.5s;
+            display: flex;
+            justify-content: space-between;
+            height: 82vh;
+            &-top{
+                &>h1{
+                    font-size: 40px;
+                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &>h2{
+                    font-size: 14px;
+                }
+            }
+            &-buttons{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &>img{
+                    animation: animateDown infinite 1.5s;
+                    height: 40px;
+                }
+            }
+        }
+        &-modelY, &-modelS, &-modelX, &-solar, &-acc{
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 15%;
+            left: 50%;
+            transition-timing-function: ease-in;
+            transition: 0.6s;
+            &>h1{
+                font-size: 40px;
+            }
+        }
+        &-modelY{
+            margin-left: -75.92px;
+        }
+        &-modelS{
+            margin-left: -75.92px;
+        }
+        &-modelX{
+            margin-left: -75.92px;
+        }
+        &-solar{
+            margin-left: -196.844px;
+        }
+        &-acc{
+            margin-left: -116.3045px;
+        }
+    }
+    &__model3, &__modelY, &__modelS, &__modelX, &__solarWall, &__acessories{
+        scroll-snap-type: y mandatory;
+        scroll-snap-align: start;
         overflow: hidden;
-        background-image: url('../../assets/images/model-3.jpg');
         background-size: cover;
         background-position: center;
         height: 100vh;
         width: 100%;
     }
+    &__model3{
+        background-image: url('../../assets/images/model-3.jpg');
+    }
     &__modelY{
-        scroll-snap-type: y mandatory;
-        scroll-snap-align: start;
-        overflow: hidden;
         background-image: url('../../assets/images/model-y.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
     }
     &__modelS{
-        scroll-snap-type: y mandatory;
-        scroll-snap-align: start;
-        overflow: hidden;
         background-image: url('../../assets/images/model-s.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
     }
     &__modelX{
-        scroll-snap-type: y mandatory;
-        scroll-snap-align: start;
-        overflow: hidden;
         background-image: url('../../assets/images/model-x.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-    }&__solarWall{
-        scroll-snap-type: y mandatory;
-        scroll-snap-align: start;
-        overflow: hidden;
+    }
+    &__solarWall{
         background-image: url('../../assets/images/solar-panel.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-    }&__acessories{
-        scroll-snap-type: y mandatory;
-        scroll-snap-align: start;
-        overflow: hidden;
+    }
+    &__acessories{
         background-image: url('../../assets/images/accessories.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
+    }
+}
+
+.space{
+    width: 42px;
+}
+.gonZo{
+    opacity: 0;
+}
+.modelButtonsDouble{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    bottom: 10%;
+    // margin-left: -271px;
+}
+.modelButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    bottom: 10%;
+    margin: 0;
+}
+.greyButton{
+    width: 250px;
+    height: 34px;
+    border: 3px solid #171a20;
+    border-radius: 15px;
+    color: white;
+    background-color: #171a20;
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+.whiteButton{
+    width: 250px;
+    height: 34px;
+    border: 3px solid #FFFFFF;
+    border-radius: 15px;
+    color: #393c41;
+    background-color: #FFFFFF;
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+@keyframes animateDown {
+    0%, 20%, 50%, 80%, 100%{
+        transform: translateY(0);
+    }
+    40%{
+        transform: translateY(5px);
+    }
+    60%{
+        transform: translateY(3px);
     }
 }

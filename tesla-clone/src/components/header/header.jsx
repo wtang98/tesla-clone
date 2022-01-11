@@ -26,9 +26,9 @@ const Header = () => {
             </div>
             <div className="header__right">
                 <ol>
-                    <li>Support</li>
-                    <li>Shop</li>
-                    <li>Acccount</li>
+                    <li className='toDisappear'>Support</li>
+                    <li className='toDisappear'>Shop</li>
+                    <li className='toDisappear'>Acccount</li>
                     <li onClick={sideMenu}>Menu</li>
                 </ol>
             </div>

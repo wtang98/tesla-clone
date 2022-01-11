@@ -4,6 +4,10 @@
     margin: 0;
 }
 .header{
+    font-family: $font-primary;
+    color: $text-color1;
+    font-weight: 900;
+    // font-weight: bold;
     background-color: transparent;
     height: 54px;
     width: 100vw;
@@ -16,6 +20,7 @@
         display: flex;
         align-items: center;
         padding-left: 32px;
+        width: 336.72px;
         &-teslaLogo{
             padding: 0 8px 0px 16px;
             width: 119.83px;
@@ -41,6 +46,7 @@
         display: flex;
         align-items: center;
         padding-right: 32px;
+        justify-content: flex-end;
         &>ol{
             display: flex;
             flex-direction: row;
@@ -48,6 +54,20 @@
                 padding: 4px 8px;
                 margin: 0 8px;
                 list-style-type: none;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .header{
+        &__center{
+            display: none;
+        }
+        &__right{
+            &>ol{
+                .toDisappear{
+                    display: none;
+                }
             }
         }
     }
