@@ -3,6 +3,43 @@
     padding: 0;
     margin: 0;
 }
+
+.menu{
+    width: 231px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+    padding: 4px 32px;
+    font-family: $font-primary;
+    z-index: 9999;
+    &__top{
+        display: flex;
+        width: 234px;
+        height: 34px;
+        justify-content: flex-end;
+        padding: 10px 48px 16px 10px;
+        margin: 10px;
+    }
+    &>ul{
+        &>li{
+            list-style: none;
+            border-radius: 10px;
+            width: 215px;
+            padding: 4px 8px;
+            margin: 0px 0px 8px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            &:hover{
+                background-color: lightgrey;
+                transition-delay: 0.1s;
+            }
+        }
+    }
+}
+
 .header{
     font-family: $font-primary;
     color: $text-color1;
@@ -39,6 +76,9 @@
                 padding: 4px 8px;
                 margin: 0 8px;
                 list-style-type: none;
+                overflow-x: none;
+                min-width: 58px;
+                cursor: pointer;
             }
         }
     }

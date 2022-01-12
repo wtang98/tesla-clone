@@ -16,8 +16,8 @@ const Home = () => {
     window.onbeforeunload = function(){
         window.scrollTo(0, 0);
     }
-    console.log(document.documentElement.scrollTop ,"scrolls")
-    console.log(window.innerHeight*5/6, 'last')
+    // console.log(document.documentElement.scrollTop ,"scrolls")
+    // console.log(window.innerHeight*5/6, 'last')
 
     // console.log(totalScreenHeight, document.documentElement.scrollTop)
     // const controller = () => {
