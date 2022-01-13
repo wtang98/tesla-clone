@@ -1,19 +1,21 @@
-import React,{useEffect} from 'react'
-import './menu.scss'
+import React from 'react';
+import '../menu/menu.scss';
 import CloseIcon from '@material-ui/icons/Close';
+import { selectCars } from '../../../features/carSlice/carSlice';
+import { useSelector } from 'react-redux';
 
 const Menu = ({extendedMenuState, sideMenuHandler}) => {
-
+    const cars = useSelector(selectCars)
+    console.log(cars)
     return (
         <div className='menu'> 
             <div className='menu__top'>
                 <CloseIcon onClick={sideMenuHandler}/>
             </div>
             <ul>
-                {extendedMenuState && <li>Model S</li>}
-                {extendedMenuState && <li>Model 3</li>}
-                {extendedMenuState && <li>Model X</li>}
-                {extendedMenuState && <li>Model Y</li>}
+                {cars && cars.map((car, index) => (
+                    (extendedMenuState && <li key={index}>{car}</li>)
+                ))}
                 <li>Existing Inventory</li>
                 <li>Used Inventory</li>
                 <li>Trade-In</li>
@@ -28,7 +30,9 @@ const Menu = ({extendedMenuState, sideMenuHandler}) => {
                 <li>Support</li>
                 <li>Investor Relations</li>
                 <li>Account</li>
-                <div></div>
+                {extendedMenuState && <li>Support</li>}
+                {extendedMenuState && <li>Shop</li>}
+                {extendedMenuState && <li>Account</li>}
             </ul>
         </div>
     )

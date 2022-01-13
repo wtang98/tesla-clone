@@ -90,3 +90,18 @@ html {
         transform: translateY(3px);
     }
 }
+
+@media only screen and (max-width: 640px) {
+    .home{
+        &__textOverlay{
+            &-model3{
+                &-buttons{
+                    .modelButtons{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+}

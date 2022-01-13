@@ -39,6 +39,19 @@
         margin-left: -116.3045px;
     }
 }
+@media only screen and (max-width: 640px) {
+    .sectTextOverlay{
+        &__modelY, &__modelS, &__modelX, &__solar, &__acc{
+            .modelButtons{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+    .whiteButton{
+        margin-top: 5px;
+    }
+}
 .spacing__model3, .spacing__modelY, .spacing__modelS, .spacing__modelX, .spacing__solar, .spacing__acc{
     scroll-snap-type: y mandatory;
     scroll-snap-align: start;

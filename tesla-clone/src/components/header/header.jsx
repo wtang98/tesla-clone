@@ -3,10 +3,12 @@ import './header.scss'
 import Logo from '../../assets/icons/logo.svg'
 import Menu from './menu/menu.jsx';
 import { selectCars } from '../../features/carSlice/carSlice';
+import { useSelector } from 'react-redux'
+
 
 const Header = ({menuState, sideMenuHandler}) => {
     const [extendedMenuState, setExtendedMenuState] = useState(window.innerWidth>1200? false: true)
-
+    const cars = useSelector(selectCars)
 
     const vpWidthChecker = () => {
         // console.log(window.innerWidth)
@@ -34,10 +36,9 @@ const Header = ({menuState, sideMenuHandler}) => {
             </div>
             <div className="header__center">
                 <ol>
-                    <li>Model S</li>
-                    <li>Model 3</li>
-                    <li>Model X</li>
-                    <li>Model Y</li>
+                    {cars && cars.map((car, index) => (
+                        <li key={index}>{car}</li>
+                    ))}
                     <li>Powerwall</li>
                     <li>Charging</li>
                 </ol>
@@ -47,7 +48,7 @@ const Header = ({menuState, sideMenuHandler}) => {
                     <li className='toDisappear'>Support</li>
                     <li className='toDisappear'>Shop</li>
                     <li className='toDisappear'>Acccount</li>
-                    <li onClick={sideMenuHandler} className={extendedMenuState && "backgroundBlurred"}>Menu</li>
+                    <li onClick={sideMenuHandler} className={extendedMenuState ? "backgroundBlurred": ""}>Menu</li>
                 </ol>
             </div>
         </div>
