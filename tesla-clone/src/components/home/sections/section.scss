@@ -1,0 +1,101 @@
+@import '../../../assets/styles.scss';
+
+.sectTextOverlay{
+    display: flex;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: -135.5px;
+    z-index: 3;
+    &__modelY, &__modelS, &__modelX, &__solar, &__acc{
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transition-timing-function: ease-in;
+        transition: 0.7s;
+        &>h1{
+            color: $text-color1;
+            font-size: 40px;
+        }
+        }
+    &__modelY{
+        margin-left: -75.92px;
+    }
+    &__modelS{
+        margin-left: -75.92px;
+    }
+    &__modelX{
+        margin-left: -75.92px;
+    }
+    &__solar{
+        margin-left: -196.844px;
+    }
+    &__acc{
+        margin-left: -116.3045px;
+    }
+}
+.spacing__model3, .spacing__modelY, .spacing__modelS, .spacing__modelX, .spacing__solar, .spacing__acc{
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+.spacing__model3{
+    background-image: url('../../../assets/images/model-3.jpg');
+}
+.spacing__modelY{
+    background-image: url('../../../assets/images/model-y.jpg');
+}
+.spacing__modelS{
+    background-image: url('../../../assets/images/model-s.jpg');
+}
+.spacing__modelX{
+    background-image: url('../../../assets/images/model-x.jpg');
+}
+.spacing__solar{
+    background-image: url('../../../assets/images/solar-panel.jpg');
+}
+.spacing__acc{
+    background-image: url('../../../assets/images/accessories.jpg');
+}
+
+.space{
+    width: 42px;
+}
+.gonZo{
+    opacity: 0;
+}
+.modelButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    bottom: 10%;
+}
+.greyButton, .whiteButton{
+    width: 250px;
+    height: 34px;
+    border-radius: 15px;
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+.greyButton{
+    color: white;
+    background-color: #171a20;
+    border: 3px solid #171a20;
+}
+.whiteButton{
+    border: 3px solid #FFFFFF;
+    color: #393c41;
+    background-color: #FFFFFF;
+}

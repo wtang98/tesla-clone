@@ -1,61 +1,34 @@
 import React, {useState, useEffect} from 'react'
 import './header.scss'
 import Logo from '../../assets/icons/logo.svg'
-import CloseIcon from '@material-ui/icons/Close';
+import Menu from './menu/menu.jsx';
+import { selectCars } from '../../features/carSlice/carSlice';
 
-const Header = () => {
-    const [menuState, setMenuState] = useState(false)
-    const [extendedMenuState, setExtendedMenuState] = useState(true)
+const Header = ({menuState, sideMenuHandler}) => {
+    const [extendedMenuState, setExtendedMenuState] = useState(window.innerWidth>1200? false: true)
 
-    const viewportWidth = window.innerWidth;
-    console.log(viewportWidth)
-    console.log(extendedMenuState)
 
     const vpWidthChecker = () => {
-        if(viewportWidth>1200){
+        // console.log(window.innerWidth)
+        if(window.innerWidth>1200){
             setExtendedMenuState(false)
+        }else if(window.innerWidth<1200){
+            setExtendedMenuState(true)
         }
     }
-    
-    const Menu = () => {
-        return (
-            <div className='menu'> 
-                <div className='menu__top'>
-                    <CloseIcon onClick={sideMenu}/>
-                </div>
-                <ul>
-                    {extendedMenuState && <li>Model S</li>}
-                    {extendedMenuState && <li>Model 3</li>}
-                    {extendedMenuState && <li>Model X</li>}
-                    {extendedMenuState && <li>Model Y</li>}
-                    <li>Existing Inventory</li>
-                    <li>Used Inventory</li>
-                    <li>Trade-In</li>
-                    <li>Test Drive</li>
-                    <li>Fleet and Business</li>
-                    <li>Powerwall</li>
-                    <li>Energy</li>
-                    <li>Commercial Energy</li>
-                    <li>Utilities</li>
-                    <li>Charging</li>
-                    <li>Find Us</li>
-                    <li>Support</li>
-                    <li>Investor Relations</li>
-                    <li>Account</li>
-                    <div></div>
-                </ul>
-            </div>
-        )
-    }
 
-    const sideMenu = () => {
-        setMenuState(!menuState)
-    }
+    useEffect(()=> {
+        window.addEventListener('resize',
+        vpWidthChecker)
+        return () => {
+            window.removeEventListener('resize',
+            vpWidthChecker)
+        }
+    }, [window.innerWidth])
 
-    useEffect(vpWidthChecker, [viewportWidth])
     return (
         <div className='header'>
-            {menuState && <Menu/>}
+            {menuState && <Menu sideMenuHandler={sideMenuHandler} extendedMenuState={extendedMenuState}/>}
             <div className="header__logo">
                 <img src={Logo} alt="tesla logo" className='header__logo-teslaLogo' />
             </div>
@@ -74,7 +47,7 @@ const Header = () => {
                     <li className='toDisappear'>Support</li>
                     <li className='toDisappear'>Shop</li>
                     <li className='toDisappear'>Acccount</li>
-                    <li onClick={sideMenu}>Menu</li>
+                    <li onClick={sideMenuHandler} className={extendedMenuState && "backgroundBlurred"}>Menu</li>
                 </ol>
             </div>
         </div>

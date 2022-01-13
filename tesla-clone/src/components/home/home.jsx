@@ -1,11 +1,13 @@
 import React,{useState, useEffect} from 'react'
 import './home.scss'
 import DownArrow from '../../assets/icons/down-arrow.svg';
+import Section from './sections/section';
+import modelYBackGround from "../../assets/images/model-3.jpg"
 
 
 const totalScreenHeight = window.innerHeight;
 
-const Home = () => {
+const Home = ({menuState}) => {
     const [showModel3, setShowModel3] = useState(false);
     const [showModelY, setShowModelY] = useState(true);
     const [showModelS, setShowModelS] = useState(true);
@@ -16,8 +18,6 @@ const Home = () => {
     window.onbeforeunload = function(){
         window.scrollTo(0, 0);
     }
-    // console.log(document.documentElement.scrollTop ,"scrolls")
-    // console.log(window.innerHeight*5/6, 'last')
 
     // console.log(totalScreenHeight, document.documentElement.scrollTop)
     // const controller = () => {
@@ -113,10 +113,6 @@ const Home = () => {
             setAcc(true)
         }
     }
-    // console.log(document.body.scrollHeight)
-    // console.log(document.documentElement.scrollTop)
-    // console.log(window.screen.height)
-    // console.log(screenHeight)
 
     useEffect(() => {
         window.addEventListener("scroll", 
@@ -168,7 +164,8 @@ const Home = () => {
     }, [])
 
     return (
-        <div className='home'>
+        <>
+        <div className='home'  style={{filter: menuState && 'blur(8px)'}} >
             <div className='home__textOverlay'>
                 <div className={`home__textOverlay-model3 ${showModel3 && `gonZo`}`}>
                     <div className='home__textOverlay-model3-top'>
@@ -178,57 +175,48 @@ const Home = () => {
                     <div className='home__textOverlay-model3-buttons'>
                         <div className='modelButtons'>
                             <button className='greyButton'>CUSTOM ORDER</button>
-                        <div className='space'></div>
+                            <div className='space'></div>
                             <button className='whiteButton'>AVAILABLE INVENTORY</button>
                         </div>
                         <div className='testDrive'>Schedule a Touchless Test Drive</div>
                         <img src={DownArrow} alt="" />
                     </div>
                 </div>
-                <div className={`home__textOverlay-modelY ${showModelY && `gonZo`}`}>
-                    <h1>Model Y</h1>
-                    <div className='modelButtonsDouble'>
-                        <button className='greyButton'>CUSTOM ORDER</button>
-                        <div className='space'></div>
-                        <button className='whiteButton'>AVAILABLE INVENTORY</button>
-                    </div>
-                </div>
-                <div className={`home__textOverlay-modelS ${showModelS && `gonZo`}`}>
-                    <h1>Model S</h1>
-                    <div className='modelButtonsDouble'>
-                        <button className='greyButton'>CUSTOM ORDER</button>
-                        <div className='space'></div>
-                        <button className='whiteButton'>AVAILABLE INVENTORY</button>
-                    </div>
-                </div>
-                <div className={`home__textOverlay-modelX ${showModelX && `gonZo`}`}>
-                    <h1>Model X</h1>
-                    <div className='modelButtonsDouble'>
-                        <button className='greyButton'>CUSTOM ORDER</button>
-                        <div className='space'></div>
-                        <button className='whiteButton'>AVAILABLE INVENTORY</button>
-                    </div>
-                </div>
-                <div className={`home__textOverlay-solar ${solar && `gonZo`}`}>
-                    <h1>Solar and Powerwall</h1>
-                    <div className='modelButtons'>
-                        <button className='greyButton'>LEARN MORE</button>
-                    </div>
-                </div>
-                <div className={`home__textOverlay-acc ${acc && `gonZo`}`}>
-                    <h1>Accessories</h1>
-                    <div className='modelButtons'>
-                        <button className='greyButton'>SHOP NOW</button>
-                    </div>
-                </div>
             </div>
             <section className='home__model3'></section>
-            <section className='home__modelY'></section>
-            <section className='home__modelS'></section>
-            <section className='home__modelX'></section>
-            <section className='home__solarWall'></section>
-            <section className='home__acessories'></section>
+            <Section model={'modelY'} 
+                showModel={showModelY} 
+                title="Model Y"
+                buttonText={"CUSTOM ORDER"}
+                hasWhiteButton={true}
+                />
+            <Section model={"modelS"} 
+                showModel={showModelS} 
+                title="Model S"
+                buttonText={"CUSTOM ORDER"}
+                hasWhiteButton={true}
+                />
+            <Section model={"modelX"} 
+                showModel={showModelX} 
+                title="Model X"
+                buttonText={"CUSTOM ORDER"}
+                hasWhiteButton={true} 
+                />
+            <Section model={"solar"} 
+                showModel={solar} 
+                title="Solar and Powerwall"
+                buttonText={"LEARN MORE"}
+                hasWhiteButton={false}
+                />
+            <Section model={"acc"} 
+                showModel={acc} 
+                title="Accessories"
+                buttonText={"SHOP NOW"}
+                hasWhiteButton={false} 
+                />
+                
         </div>
+        </>
     )
 }
 

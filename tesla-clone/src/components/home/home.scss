@@ -3,9 +3,11 @@
     margin: 0;
     padding: 0;
 }
+
 html {
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
+    transition-delay: 1000ms;
 }
 
 .home{
@@ -14,14 +16,14 @@ html {
     &__textOverlay{
         color: $text-color1;
         display: flex;
-        position: fixed;
+        position: relative;
         top: 15%;
         left: 50%;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         margin-left: -135.5px;
-        z-index: 0;
+        z-index: 3;
         &-model3{
             position: fixed;
             top: 15%;
@@ -50,41 +52,20 @@ html {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                .testDrive{
+                    bottom: 5%;
+                    position: fixed;
+                }
                 &>img{
                     animation: animateDown infinite 1.5s;
                     height: 40px;
+                    bottom: 0;
+                    position: fixed;
                 }
             }
         }
-        &-modelY, &-modelS, &-modelX, &-solar, &-acc{
-            display: flex;
-            justify-content: center;
-            position: fixed;
-            top: 15%;
-            left: 50%;
-            transition-timing-function: ease-in;
-            transition: 0.7s;
-            &>h1{
-                font-size: 40px;
-            }
-        }
-        &-modelY{
-            margin-left: -75.92px;
-        }
-        &-modelS{
-            margin-left: -75.92px;
-        }
-        &-modelX{
-            margin-left: -75.92px;
-        }
-        &-solar{
-            margin-left: -196.844px;
-        }
-        &-acc{
-            margin-left: -116.3045px;
-        }
     }
-    &__model3, &__modelY, &__modelS, &__modelX, &__solarWall, &__acessories{
+    &__model3, &__modelY, &__modelS, &__modelX, &__solar, &__acc{
         scroll-snap-type: y mandatory;
         scroll-snap-align: start;
         overflow: hidden;
@@ -96,68 +77,6 @@ html {
     &__model3{
         background-image: url('../../assets/images/model-3.jpg');
     }
-    &__modelY{
-        background-image: url('../../assets/images/model-y.jpg');
-    }
-    &__modelS{
-        background-image: url('../../assets/images/model-s.jpg');
-    }
-    &__modelX{
-        background-image: url('../../assets/images/model-x.jpg');
-    }
-    &__solarWall{
-        background-image: url('../../assets/images/solar-panel.jpg');
-    }
-    &__acessories{
-        background-image: url('../../assets/images/accessories.jpg');
-    }
-}
-
-.space{
-    width: 42px;
-}
-.gonZo{
-    opacity: 0;
-}
-.modelButtons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: fixed;
-    bottom: 10%;
-    margin: 0;
-}
-.modelButtonsDouble{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: fixed;
-    bottom: 10%;
-}
-.greyButton{
-    width: 250px;
-    height: 34px;
-    border: 3px solid #171a20;
-    border-radius: 15px;
-    color: white;
-    background-color: #171a20;
-    font-family: $font-primary;
-    font-weight: 600;
-    font-size: 12px;
-    cursor: pointer;
-}
-.whiteButton{
-    width: 250px;
-    height: 34px;
-    border: 3px solid #FFFFFF;
-    border-radius: 15px;
-    color: #393c41;
-    background-color: #FFFFFF;
-    font-family: $font-primary;
-    font-weight: 600;
-    font-size: 12px;
-    cursor: pointer;
-    z-index: -1;
 }
 
 @keyframes animateDown {
